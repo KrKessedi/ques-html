@@ -93,17 +93,17 @@
 	}
 }
 
-.logo-footer {
+/* .logo {
 	display: none;
 	cursor: pointer;
 }
 
 @media (min-width: 1024px) {
-	.logo-footer {
+	.logo {
 		display: block;
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
-}
+} */
