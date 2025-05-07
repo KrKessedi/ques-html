@@ -10,6 +10,14 @@
 	width: 100%;
 }
 
+.product-group:nth-child(odd) {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.product-group:nth-child(even) {
+	grid-template-columns: repeat(3, 1fr);
+}
+
 .product-item {
 	border: 1px solid #2c4ea5;
 	position: relative;
