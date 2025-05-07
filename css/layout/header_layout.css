@@ -341,7 +341,13 @@ header {
 	justify-content: space-between;
 	padding: 10px 0;
 	align-items: center;
-	gap: 80px;
+	gap: 20px;
+}
+
+@media (min-width: 640px) {
+	.mobile-header {
+		gap: 80px;
+	}
 }
 
 @media (min-width: 1024px) {

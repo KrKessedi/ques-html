@@ -85,9 +85,20 @@
 	}
 }
 
+@media (max-width: 400px) {
+	.catalog-grid {
+		gap: 16px;
+	}
+
+	.product-card {
+		width: 90%;
+	}
+}
+
 /* Карточка товара */
 .product-card {
 	position: relative;
+	/* width: 90%; */
 }
 
 .product-icon {
