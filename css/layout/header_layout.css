@@ -398,6 +398,10 @@ header {
 @media (min-width: 1024px) {
 	.logo {
 		display: block;
+		position: absolute;
+		top: 70%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 }
 
@@ -497,7 +501,7 @@ header {
 }
 
 .burger-button.active .burger-line:nth-child(1) {
-	transform: rotate(45deg) translateY(8px);
+	transform: rotate(45deg) translateY(10px);
 	margin-bottom: 21px;
 }
 
@@ -506,7 +510,7 @@ header {
 }
 
 .burger-button.active .burger-line:nth-child(3) {
-	transform: rotate(-45deg) translateY(-8px);
+	transform: rotate(-45deg) translateY(-10px);
 	margin-top: 10px;
 }
 

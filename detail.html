@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product Detail</title>
+		<link rel="stylesheet" href="./css/detail.css" />
+		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" href="./css/layout/header_layout.css" />
+		<link rel="stylesheet" href="./css/layout/footer_layout.css" />
+	</head>
+	<body>
+		<div id="root"></div>
+		<section class="product-detail">
+			<div class="container">
+				<!-- Лоадер -->
+				<div class="loader-container" style="display: none">
+					<span class="loader"></span>
+				</div>
+
+				<!-- Контент товара -->
+				<div class="product-content">
+					<!-- Левая часть: Изображения -->
+					<div class="product-images">
+						<img
+							src="./assets/Catalog/hit.png"
+							alt="Product Image"
+							class="product-main-image"
+						/>
+						<div class="product-thumbnails">
+							<img
+								src="./assets/Catalog/hit.png"
+								alt="Thumbnail 1"
+								class="product-thumbnail"
+							/>
+							<img
+								src="./assets/Catalog/hit.png"
+								alt="Thumbnail 2"
+								class="product-thumbnail"
+							/>
+							<img
+								src="./assets/Catalog/hit.png"
+								alt="Thumbnail 3"
+								class="product-thumbnail"
+							/>
+						</div>
+					</div>
+
+					<!-- Правая часть: Информация -->
+					<div class="product-info">
+						<h2 class="product-title">Название товара</h2>
+						<p class="product-subtitle">Подзаголовок или описание</p>
+						<div class="product-availability">
+							<span class="availability-label">Наличие: </span>
+							<span class="availability-status">Есть в наличии</span>
+						</div>
+
+						<div class="product-price">
+							<h3>5000 сом</h3>
+						</div>
+					</div>
+				</div>
+
+				<!-- Секция рекомендаций -->
+				<section class="recommendations">
+					<h2>Вам может понравиться</h2>
+					<div class="recommendations-grid">
+						<div class="recommendation-card">
+							<img
+								src="./assets/Catalog/hit.png"
+								alt="Recommendation 1"
+								class="recommendation-image"
+							/>
+							<h3 class="recommendation-title">Товар 1</h3>
+							<p class="recommendation-subtitle">Категория</p>
+							<p class="recommendation-price">1000 с</p>
+						</div>
+						<div class="recommendation-card">
+							<img
+								src="./assets/Catalog/hit.png"
+								alt="Recommendation 2"
+								class="recommendation-image"
+							/>
+							<h3 class="recommendation-title">Товар 2</h3>
+							<p class="recommendation-subtitle">Категория</p>
+							<p class="recommendation-price">2000 с</p>
+						</div>
+						<div class="recommendation-card">
+							<img
+								src="./assets/Catalog/hit.png"
+								alt="Recommendation 3"
+								class="recommendation-image"
+							/>
+							<h3 class="recommendation-title">Товар 3</h3>
+							<p class="recommendation-subtitle">Категория</p>
+							<p class="recommendation-price">3000 с</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Секция поддержки -->
+				<section class="support">
+					<div class="support-header">
+						<img
+							src="./assets/icons/question.svg"
+							alt="Help Icon"
+							class="support-icon"
+						/>
+						<div class="support-text">
+							<span class="support-subtitle">нужна помощь?</span>
+							<p class="support-title">служба поддержки</p>
+						</div>
+					</div>
+					<div class="support-links">
+						<a href="/warranty" class="support-link">
+							<img
+								src="./assets/icons/warrantyIcon.svg"
+								alt="Warranty Icon"
+								class="support-link-icon"
+							/>
+							<p>Гарантия качества продукции</p>
+						</a>
+						<a href="/bonuses" class="support-link">
+							<img
+								src="./assets/icons/cartIcon.svg"
+								alt="Cart Icon"
+								class="support-link-icon"
+							/>
+							<p>Накопительные бонусы и акции</p>
+						</a>
+						<a href="/delivery" class="support-link">
+							<img
+								src="./assets/icons/kgIcon.svg"
+								alt="Delivery Icon"
+								class="support-link-icon"
+							/>
+							<p>Доставка по всему Кыргызстану</p>
+						</a>
+					</div>
+				</section>
+			</div>
+		</section>
+		<div id="footer"></div>
+		<script src="/js/filter.js"></script>
+		<script src="/js/layout/layout-header.js"></script>
+		<script src="/js/layout/layout-footer.js"></script>
+	</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Catalog</title>
+		<link rel="stylesheet" href="/css/catalog.css" />
+		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" href="/css/layout/header_layout.css" />
+		<link rel="stylesheet" href="/css/layout/footer_layout.css" />
+	</head>
+	<body>
+		<div id="root"></div>
+		<section class="catalog">
+			<div class="container">
+				<div class="filtersidebar">
+					<div class="filtersidebar__row">
+						<button type="button" class="filtersidebar__btn" id="openFilterBtn">
+							<img
+								src="./assets/icons/Catalog/Filtericon.svg"
+								alt="Filter Icon"
+							/>
+							<h3 class="filtersidebar__btn-text">Фильтры</h3>
+						</button>
+						<div class="filtersidebar__text">
+							<p class="filtersidebar__sort" id="sortToggle">
+								Сортировать по:
+								<span id="currentSort" class="filtersidebar__sort__text"
+									>Популярности</span
+								>
+								<img src="./assets/icons/filter-arrow.svg" alt="arrow" />
+								<img
+									src="./assets/icons/filter-arrow.svg"
+									class="filter-arrow"
+									alt="arrow"
+								/>
+							</p>
+							<ul class="filtersidebar__dropdown" id="sortDropdown">
+								<li
+									class="filtersidebar__dropdown-item"
+									data-sort="Популярности"
+								>
+									Популярности
+								</li>
+								<li class="filtersidebar__dropdown-item" data-sort="По скидкам">
+									По скидкам
+								</li>
+								<li
+									class="filtersidebar__dropdown-item"
+									data-sort="Сначала дешевле"
+								>
+									Сначала дешевле
+								</li>
+								<li
+									class="filtersidebar__dropdown-item"
+									data-sort="Сначала дороже"
+								>
+									Сначала дороже
+								</li>
+								<li
+									class="filtersidebar__dropdown-item"
+									data-sort="По алфавиту"
+								>
+									По алфавиту
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Панель фильтров -->
+					<div class="filtersidebar__panel" id="filterPanel">
+						<button
+							type="button"
+							title="toggleFilter"
+							class="filtersidebar__close"
+							id="closeFilterBtn"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="currentColor"
+								class="filtersidebar__close-icon"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M6 18L18 6M6 6l12 12"
+								/>
+							</svg>
+						</button>
+						<h2 class="filtersidebar__title">ФИЛЬТРЫ</h2>
+						<div class="filtersidebar__checkboxes">
+							<label class="filtersidebar__label">
+								<span>Со скидкой</span>
+								<input type="checkbox" class="filtersidebar__checkbox" />
+							</label>
+							<label class="filtersidebar__label">
+								<span>В наличии</span>
+								<input
+									type="checkbox"
+									class="filtersidebar__checkbox"
+									checked
+								/>
+							</label>
+						</div>
+						<div class="filtersidebar__slider">
+							<div class="filtersidebar__slider-labels">
+								<span id="minPriceLabel">от 50 с</span>
+								<span id="maxPriceLabel">до 10000 с</span>
+							</div>
+							<div class="filtersidebar__slider-container">
+								<div class="filtersidebar__track"></div>
+								<input
+									title="minPrice"
+									type="range"
+									min="50"
+									max="10000"
+									value="50"
+									class="filtersidebar__range"
+									id="minPrice"
+								/>
+								<input
+									title="maxPrice"
+									type="range"
+									min="50"
+									max="10000"
+									value="10000"
+									class="filtersidebar__range"
+									id="maxPrice"
+								/>
+							</div>
+						</div>
+						<ul class="filtersidebar__categories">
+							<li class="filtersidebar__category">
+								<span>Аксессуары</span>
+								<button type="button" class="filtersidebar__button">+</button>
+							</li>
+							<li class="filtersidebar__category">
+								<span>Все для волос</span>
+								<button type="button" class="filtersidebar__button">+</button>
+							</li>
+							<li class="filtersidebar__category">
+								<span>Головные уборы</span>
+								<button type="button" class="filtersidebar__button">+</button>
+							</li>
+							<li class="filtersidebar__category">
+								<span>Конструкторы</span>
+								<button type="button" class="filtersidebar__button">+</button>
+							</li>
+							<li class="filtersidebar__category">
+								<span>Ночники</span>
+								<button type="button" class="filtersidebar__button">-</button>
+							</li>
+						</ul>
+					</div>
+					<div class="filtersidebar__overlay" id="filterOverlay"></div>
+				</div>
+				<!-- Лоадер (скрыт по умолчанию) -->
+				<div class="loader-container" style="display: none">
+					<span class="loader"></span>
+				</div>
+
+				<!-- Контент каталога -->
+				<div class="catalog-content">
+					<div class="catalog-grid">
+						<!-- Карточка 1 (маленькая) -->
+						<div class="product-card">
+							<div class="product-card__img">
+								<img
+									src="https://home.ques.kg/static/src/template_01.png"
+									alt="Product"
+									class="product-image placeholder"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2 class="product-title">Название товара 1</h2>
+								<h3 class="product-subtitle">Подзаголовок товара</h3>
+								<div class="product-card__footer">
+									<p class="product-price">5000 Сом</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Карточка 2 (маленькая) -->
+						<div class="product-card">
+							<div class="product-card__img">
+								<img
+									src="https://home.ques.kg/static/src/template_01.png"
+									alt="Product"
+									class="product-image placeholder"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2 class="product-title">Название товара 2</h2>
+								<h3 class="product-subtitle">Подзаголовок товара</h3>
+								<div class="product-card__footer">
+									<p class="product-price">5500 Сом</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Карточка 3 (маленькая) -->
+						<div class="product-card">
+							<img
+								src="./assets/icons/2.svg"
+								alt="Product Icon"
+								class="product-icon"
+							/>
+							<div class="product-card__img">
+								<img
+									src="https://home.ques.kg/static/src/template_01.png"
+									alt="Product"
+									class="product-image placeholder"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2 class="product-title">Название товара 3</h2>
+								<h3 class="product-subtitle">Подзаголовок товара</h3>
+								<div class="product-card__footer">
+									<p class="product-price">6000 Сом</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Карточка 4 (маленькая) -->
+						<div class="product-card">
+							<div class="product-card__img">
+								<img
+									src="https://home.ques.kg/static/src/template_01.png"
+									alt="Product"
+									class="product-image placeholder"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2 class="product-title">Название товара 4</h2>
+								<h3 class="product-subtitle">Подзаголовок товара</h3>
+								<div class="product-card__footer">
+									<p class="product-price">6500 Сом</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Карточка 5 (маленькая) -->
+						<div class="product-card">
+							<img
+								src="./assets/icons/4.svg"
+								alt="Product Icon"
+								class="product-icon"
+							/>
+							<div class="product-card__img">
+								<img
+									src="https://home.ques.kg/static/src/template_01.png"
+									alt="Product"
+									class="product-image placeholder"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2 class="product-title">Название товара 5</h2>
+								<h3 class="product-subtitle">Подзаголовок товара</h3>
+								<div class="product-card__footer">
+									<p class="product-price">7000 Сом</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Карточка 6 (маленькая) -->
+						<div class="product-card">
+							<div class="product-card__img">
+								<img
+									src="https://home.ques.kg/static/src/template_01.png"
+									alt="Product"
+									class="product-image placeholder"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2 class="product-title">Название товара 6</h2>
+								<h3 class="product-subtitle">Подзаголовок товара</h3>
+								<div class="product-card__footer">
+									<p class="product-price">7500 Сом</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Карточка 7 (большая) -->
+						<div class="product-card large">
+							<img
+								src="./assets/icons/6.svg"
+								alt="Product Icon"
+								class="product-icon"
+							/>
+							<div class="product-card__img">
+								<img
+									src="https://home.ques.kg/static/src/template_01.png"
+									alt="Product"
+									class="product-image placeholder"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2 class="product-title">Название товара 7</h2>
+								<h3 class="product-subtitle">Подзаголовок товара</h3>
+								<div class="product-card__footer">
+									<p class="product-price">8000 Сом</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Карточка 8 (большая) -->
+						<div class="product-card large">
+							<img
+								src="./assets/icons/7.svg"
+								alt="Product Icon"
+								class="product-icon"
+							/>
+							<div class="product-card__img">
+								<img
+									src="https://home.ques.kg/static/src/template_01.png"
+									alt="Product"
+									class="product-image placeholder"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2 class="product-title">Название товара 8</h2>
+								<h3 class="product-subtitle">Подзаголовок товара</h3>
+								<div class="product-card__footer">
+									<p class="product-price">8500 Сом</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Пагинация -->
+					<div class="pagination">
+						<button class="pagination-btn arrow" disabled><</button>
+						<button class="pagination-btn active">1</button>
+						<button class="pagination-btn">2</button>
+						<button class="pagination-btn">3</button>
+						<button class="pagination-btn">...</button>
+						<button class="pagination-btn">5</button>
+						<button class="pagination-btn arrow">></button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div id="footer"></div>
+		<script src="/js/filter.js"></script>
+		<script src="/js/layout/layout-header.js"></script>
+		<script src="/js/layout/layout-footer.js"></script>
+	</body>
+</html>

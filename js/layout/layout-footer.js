@@ -1,7 +1,7 @@
 const footer = `
   <footer class="footer">
     <div class="footer-container">
-      <img src="/assets/icons/logoWhite.svg" alt="Логотип" class="logo" />
+      <img src="/assets/icons/logoWhite.svg" alt="Логотип" class="logo-footer" />
 
       <ul class="footer-links">
         <li><a href="/faq">Часто задаваемые вопросы</a></li>
