@@ -64,9 +64,6 @@ function createLayout() {
                                 <img src="/assets/Header/search.svg" alt="Search" class="search-icon desktop-search-trigger">
                             </div>
                             
-                            <img src="/assets/Header/bag.svg" alt="Bag" class="bag-icon" onclick="navigateTo('/basket')">
-                            <img src="/assets/Header/heart.svg" alt="Heart" class="heart-icon" onclick="navigateTo('/favorites')">
-                            <img src="/assets/Header/img/avatar.png" alt="Avatar" class="avatar" onclick="navigateTo('/profile')">
                         </div>
                     </div>
                 </div>
@@ -83,12 +80,7 @@ function createLayout() {
                     <li><a href="/catalog">Каталог</a></li>
                     <li><a href="/about">О магазине</a></li>
                     <li><a href="/c">Акции</a></li>
-                    <li><a href="/cart">Корзина</a></li>
-                    <li><a href="/faq">Часто задаваемые вопросы</a></li>
-                    <li><a href="/profile">Личный кабинет</a></li>
                     <li><a href="/contacts">Контакты</a></li>
-                    <li><a href="/favorites">Избранное</a></li>
-                    <li><a href="/delivery">Доставка</a></li>
                 </ul>
                 
                 <!-- Desktop Menu -->
@@ -99,15 +91,10 @@ function createLayout() {
                         <li><a href="/catalog">Каталог</a></li>
                         <li><a href="/about">О магазине</a></li>
                         <li><a href="/c">Акции</a></li>
-                        <li><a href="/cart">Корзина</a></li>
                     </ul>
                     
                     <ul class="menu-column">
-                        <li><a href="/faq">Часто задаваемые вопросы</a></li>
-                        <li><a href="/profile">Личный кабинет</a></li>
                         <li><a href="/contacts">Контакты</a></li>
-                        <li><a href="/favorites">Избранное</a></li>
-                        <li><a href="/delivery">Доставка</a></li>
                     </ul>
                 </div>
             </div>

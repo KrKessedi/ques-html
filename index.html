@@ -1,184 +1,544 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Category Page</title>
-		<link rel="stylesheet" href="./css/index.css" />
-		<link rel="stylesheet" href="./css/categories.css" />
-		<link rel="stylesheet" href="./css/layout/header_layout.css" />
+		<title>Home Page</title>
+		<link rel="stylesheet" href="./css/home.css	" />
 		<link rel="stylesheet" href="./css/layout/footer_layout.css" />
+		<link rel="stylesheet" href="./css/layout/header_layout.css" />
 	</head>
 	<body>
 		<div id="root"></div>
 
-		<!-- NavBar -->
-		<section class="navbar">
-			<div class="container">
-				<ul class="nav-list">
-					<li class="nav-item">
-						<a href="/a" class="nav-link">НОВИНКИ</a>
-					</li>
-					<li class="nav-item">
-						<a href="/categories" class="nav-link">КАТЕГОРИИ</a>
-					</li>
-					<li class="nav-item">
-						<a href="/catalog" class="nav-link">КАТАЛОГ</a>
-					</li>
-					<li class="nav-item">
-						<a href="/about" class="nav-link">О МАГАЗИНЕ</a>
-					</li>
-					<li class="nav-item">
-						<a href="/c" class="nav-link">АКЦИИ</a>
-					</li>
-				</ul>
-			</div>
-		</section>
+		<div>
+			<!-- Navbar -->
+			<section class="navbar">
+				<div class="container">
+					<ul>
+						<li><a href="/a">НОВИНКИ</a></li>
+						<li><a href="/categories">КАТЕГОРИИ</a></li>
+						<li><a href="/catalog">КАТАЛОГ</a></li>
+						<li><a href="/about">О МАГАЗИНЕ</a></li>
+						<li><a href="/c">АКЦИИ</a></li>
+					</ul>
+				</div>
+			</section>
 
-		<!-- Category Page -->
-		<section class="category-page">
-			<div class="container">
-				<div class="category-header">
-					<!-- Dropdown -->
-					<div class="dropdown">
-						<button class="dropdown-button" id="dropdownButton">
-							Категория
-							<img
-								src="/assets/icons/arrowUp.svg"
-								alt=""
-								class="dropdown-arrow"
-								id="dropdownArrow"
-							/>
-						</button>
-						<ul class="dropdown-menu" id="dropdownMenu">
-							<!-- Categories will be loaded here -->
-							<li class="dropdown-item" data-category="Все">
-								<div class="radio-indicator">
-									<div class="radio-dot"></div>
-								</div>
-								<span>Все</span>
-							</li>
-							<li class="dropdown-item" data-category="Офис">
-								<div class="radio-indicator">
-									<div class="radio-dot"></div>
-								</div>
-								<span>Офис</span>
-							</li>
-							<li class="dropdown-item" data-category="Дом">
-								<div class="radio-indicator">
-									<div class="radio-dot"></div>
-								</div>
-								<span>Дом</span>
-							</li>
-							<li class="go-to-catalog" id="goToCatalog">Перейти в каталог</li>
-						</ul>
+			<!-- Hero Slider -->
+			<section>
+				<div class="hero__row">
+					<div class="hero__image-container">
+						<p>ВЕСЕННИЕ СКИДКИ ДО -50%</p>
+						<img src="./assets/img/hero.png" alt="Слайд 1" />
+						<div class="overlay"></div>
 					</div>
+					<button class="hero__button">
+						<p>ПЕРЕЙТИ К АКЦИИ</p>
+						<img src="./assets/icons/arrowSwiper.svg" alt="Arrow" />
+					</button>
+				</div>
+			</section>
 
-					<!-- Sort Dropdown -->
-					<div class="sort-dropdown">
-						<button class="sort-button" id="sortButton">
-							Сортировать по: <span id="currentSort">Популярности</span>
-							<svg
-								class="sort-arrow"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M19 9l-7 7-7-7"
+			<!-- Bestsellers -->
+			<section>
+				<div class="container">
+					<h2 class="section-title">БЕСТСЕЛЛЕРЫ</h2>
+					<div class="bestsellers-grid">
+						<div class="grid-item">
+							<img src="./assets/Home/images/ear-rings-image.png" alt="" />
+							<button>УКРАШЕНИЯ</button>
+						</div>
+						<div class="grid-item">
+							<img src="./assets/Home/images/second.png" alt="" />
+							<button>ИГРУШКИ</button>
+						</div>
+						<div class="grid-item">
+							<img src="./assets/Home/images/white-radio.png" alt="" />
+							<button>ГОЛОВНЫЕ УБОРЫ</button>
+						</div>
+					</div>
+					<div class="bestsellers-bottom">
+						<div class="grid-item">
+							<img src="./assets/Home/images/therd.png" alt="" />
+							<button>БРЕЛКИ</button>
+						</div>
+						<div class="grid-item">
+							<img src="./assets/Home/images/fourth.png" alt="" />
+							<button>ПРОЧЕЕ</button>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- New Items -->
+			<section class="new-items">
+				<div class="container">
+					<h2 class="section-title">Новинки</h2>
+					<div class="product-grid">
+						<div class="product-card">
+							<div class="product-card__img">
+								<img src="./assets/Catalog/discount.png" alt="" />
+								<img
+									class="heart-icon"
+									src="./assets/icons/heartIcon.svg"
+									alt="Favorite"
 								/>
-							</svg>
-						</button>
-						<button class="mobile-catalog-button" id="mobileCatalogButton">
-							Перейти в каталог
-						</button>
-						<ul class="sort-menu" id="sortMenu">
-							<li class="sort-item" data-sort="Популярности">Популярности</li>
-							<li class="sort-item" data-sort="По скидкам">По скидкам</li>
-							<li class="sort-item" data-sort="Сначала дешевле">
-								Сначала дешевле
-							</li>
-							<li class="sort-item" data-sort="Сначала дороже">
-								Сначала дороже
-							</li>
-							<li class="sort-item" data-sort="По алфавиту">По алфавиту</li>
-						</ul>
+							</div>
+							<div class="product-card__info">
+								<h2>Ночник LEGO</h2>
+								<h3>ночник LEGO</h3>
+								<div class="product-footer">
+									<p>1200 сом</p>
+									<img src="./assets/icons/basketIconNoActive.svg" alt="" />
+								</div>
+								<button class="add-to-cart">добавить в корзину</button>
+							</div>
+						</div>
+						<div class="product-card">
+							<div class="product-card__img">
+								<img src="./assets/Catalog/discount.png" alt="" />
+								<img
+									class="heart-icon"
+									src="./assets/icons/heartIcon.svg"
+									alt="Favorite"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2>Винтажные кепки из 90х</h2>
+								<h3>винтажные кепки из 90х</h3>
+								<div class="product-footer">
+									<p>700-800 сом</p>
+									<img src="./assets/icons/basketIconNoActive.svg" alt="" />
+								</div>
+								<button class="add-to-cart">добавить в корзину</button>
+							</div>
+						</div>
+						<div class="product-card">
+							<div class="product-card__img">
+								<img src="./assets/Catalog/discount.png" alt="" />
+								<img
+									class="heart-icon"
+									src="./assets/icons/heartIcon.svg"
+									alt="Favorite"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2>Подвеска с розовыми камнями</h2>
+								<h3>подвеска с розовыми камнями</h3>
+								<div class="product-footer">
+									<p>450 сом</p>
+									<img src="./assets/icons/basketIconNoActive.svg" alt="" />
+								</div>
+								<button class="add-to-cart">добавить в корзину</button>
+							</div>
+						</div>
+						<div class="product-card">
+							<div class="product-card__img">
+								<img src="./assets/Catalog/discount.png" alt="" />
+								<img
+									class="heart-icon"
+									src="./assets/icons/heartIcon.svg"
+									alt="Favorite"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2>Пленочный фотоаппарат</h2>
+								<h3>пленочный фотоаппарат</h3>
+								<div class="product-footer">
+									<p>2500 сом</p>
+									<img src="./assets/icons/basketIconNoActive.svg" alt="" />
+								</div>
+								<button class="add-to-cart">добавить в корзину</button>
+							</div>
+						</div>
+					</div>
+					<a href="/catalog" class="view-all">Смотреть все</a>
+				</div>
+			</section>
+
+			<!-- Categories -->
+			<section class="categories">
+				<div class="container">
+					<h2 class="section-title">КАТЕГОРИИ</h2>
+					<div class="categories-grid">
+						<div class="grid-item">
+							<img src="./assets/Home/images/fourth.png" alt="" />
+							<button>DIY</button>
+						</div>
+						<div class="grid-item">
+							<img src="./assets/Home/images/ear-rings-image.png" alt="" />
+							<button>СУМКИ</button>
+						</div>
+					</div>
+					<div class="categories-bottom">
+						<div class="grid-item">
+							<img src="./assets/Home/images/white-radio.png" alt="" />
+							<button>НОЧНИКИ</button>
+						</div>
+						<div class="grid-item">
+							<img src="./assets/Home/images/ear-rings-image.png" alt="" />
+							<button>УПАКОВКА</button>
+						</div>
+						<div class="grid-item">
+							<img src="./assets/Home/images/therd.png" alt="" />
+							<button>ПАРНОЕ</button>
+						</div>
+						<div class="grid-item">
+							<img src="./assets/Home/images/fourth.png" alt="" />
+							<button>НОГТИ</button>
+						</div>
+						<div class="grid-item arrow">
+							<img
+								src="./assets/icons/Categories/arrowIcon.svg"
+								alt="Arrow Icon"
+							/>
+						</div>
 					</div>
 				</div>
+			</section>
 
-				<!-- Product Grid -->
-				<div class="product-grid" id="productGrid">
-					<!-- Product groups will be loaded here -->
-					<div
-						class="product-group"
-						style="grid-template-columns: repeat(2, 1fr)"
-					>
-						<div class="product-item">
-							<img
-								src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fDB8fHww"
-								alt="Ночник LEGO"
-								class="product-image"
-							/>
-							<p class="product-title">Ночник LEGO</p>
+			<!-- Night Lights -->
+			<section>
+				<div class="container">
+					<h2 class="section-title">НОЧНИКИ</h2>
+					<div class="product-grid">
+						<div class="product-card">
+							<div class="product-card__img">
+								<img src="./assets/Catalog/discount.png" alt="" />
+								<img
+									class="heart-icon"
+									src="./assets/icons/heartIcon.svg"
+									alt="Favorite"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2>Ночник LEGO</h2>
+								<h3>ночник LEGO</h3>
+								<div class="product-footer">
+									<p>1200 сом</p>
+									<img src="./assets/icons/basketIconNoActive.svg" alt="" />
+								</div>
+								<button class="add-to-cart">добавить в корзину</button>
+							</div>
 						</div>
-						<div class="product-item">
-							<img
-								src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b2ZmaWNlfGVufDB8fDB8fHww"
-								alt="Ночник LEGO"
-								class="product-image"
-							/>
-							<p class="product-title">Ночник LEGO</p>
+						<div class="product-card">
+							<div class="product-card__img">
+								<img src="./assets/Catalog/discount.png" alt="" />
+								<img
+									class="heart-icon"
+									src="./assets/icons/heartIcon.svg"
+									alt="Favorite"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2>Винтажные кепки из 90х</h2>
+								<h3>винтажные кепки из 90х</h3>
+								<div class="product-footer">
+									<p>700-800 сом</p>
+									<img src="./assets/icons/basketIconNoActive.svg" alt="" />
+								</div>
+								<button class="add-to-cart">добавить в корзину</button>
+							</div>
+						</div>
+						<div class="product-card">
+							<div class="product-card__img">
+								<img src="./assets/Catalog/discount.png" alt="" />
+								<img
+									class="heart-icon"
+									src="./assets/icons/heartIcon.svg"
+									alt="Favorite"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2>Ночник LEGO</h2>
+								<h3>подвеска с розовыми камнями</h3>
+								<div class="product-footer">
+									<p>1200 сом</p>
+									<img src="./assets/icons/basketIconNoActive.svg" alt="" />
+								</div>
+								<button class="add-to-cart">добавить в корзину</button>
+							</div>
+						</div>
+						<div class="product-card">
+							<div class="product-card__img">
+								<img src="./assets/Catalog/discount.png" alt="" />
+								<img
+									class="heart-icon"
+									src="./assets/icons/heartIcon.svg"
+									alt="Favorite"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2>Винтажные кепки из 90х</h2>
+								<h3>Винтажные кепки из 90х</h3>
+								<div class="product-footer">
+									<p>700-800 сом</p>
+									<img src="./assets/icons/basketIconNoActive.svg" alt="" />
+								</div>
+								<button class="add-to-cart">добавить в корзину</button>
+							</div>
 						</div>
 					</div>
-					<div
-						class="product-group"
-						style="grid-template-columns: repeat(3, 1fr)"
-					>
-						<div class="product-item">
-							<img
-								src="https://plus.unsplash.com/premium_photo-1683120730432-b5ea74bd9047?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8b2ZmaWNlfGVufDB8fDB8fHww"
-								alt="Ночник LEGO"
-								class="product-image"
-							/>
-							<p class="product-title">Ночник LEGO</p>
-						</div>
-						<div class="product-item">
-							<img
-								src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8b2ZmaWNlfGVufDB8fDB8fHww"
-								alt="Ночник LEGO"
-								class="product-image"
-							/>
-							<p class="product-title">Ночник LEGO</p>
-						</div>
-						<div class="product-item">
-							<img
-								src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8b2ZmaWNlfGVufDB8fDB8fHww"
-								alt="Ночник LEGO"
-								class="product-image"
-							/>
-							<p class="product-title">Ночник LEGO</p>
-						</div>
-					</div>
-					<!-- More product groups would be added here -->
+					<a href="/catalog" class="view-all">Смотреть все</a>
 				</div>
+			</section>
 
-				<!-- Pagination -->
-				<div class="pagination">
-					<button class="page-button" id="prevPage" disabled>&lt;</button>
-					<button class="page-button active">1</button>
-					<button class="page-button">2</button>
-					<button class="page-button">3</button>
-					<button class="page-button">4</button>
-					<button class="page-button" id="nextPage">&gt;</button>
+			<!-- Marquee section -->
+
+			<div class="marquee-parent-container">
+				<div class="marquee-container">
+					<div class="marquee">
+						<span>СУПЕР СКИДКИ</span>
+						<span>СУПЕР СКИДКИ</span>
+						<span>СУПЕР СКИДКИ</span>
+						<span>СУПЕР СКИДКИ</span>
+						<span>СУПЕР СКИДКИ</span>
+						<span>СУПЕР СКИДКИ</span>
+						<span>СУПЕР СКИДКИ</span>
+						<span>СУПЕР СКИДКИ</span>
+						<span>СУПЕР СКИДКИ</span>
+						<span>СУПЕР СКИДКИ</span>
+					</div>
 				</div>
 			</div>
-		</section>
-		<div id="footer"></div>
+
+			<!-- Products Section -->
+			<section class="products-section">
+				<div class="container">
+					<div class="products-layout">
+						<!-- Left Product List -->
+						<div class="product-list">
+							<div class="product-item">
+								<div class="heart-icon">
+									<img src="./assets/icons/heartIcon.svg" alt="" />
+								</div>
+								<a href="/">
+									<div class="image-container">
+										<img
+											src="./assets/discountBlockImg/radio.png"
+											alt="Сумка из эко-кожи"
+										/>
+									</div>
+									<div class="info">
+										<h3>Сумка из эко-кожи</h3>
+										<p>700 сом</p>
+									</div>
+								</a>
+							</div>
+							<div class="product-item">
+								<div class="heart-icon">
+									<img src="./assets/icons/heartIcon.svg" alt="" />
+								</div>
+								<a href="/">
+									<div class="image-container">
+										<img
+											src="./assets/discountBlockImg/necklace.png"
+											alt="Сумка из эко-кожи"
+										/>
+									</div>
+									<div class="info">
+										<h3>Сумка из эко-кожи</h3>
+										<p>700 сом</p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<!-- Center Section -->
+						<div class="center-section">
+							<img src="./assets/discountBlockImg/woman.png" alt="#" />
+							<a href="/products">СМОТРЕТЬ ВСЕ</a>
+						</div>
+						<!-- Right Product List -->
+						<div class="product-list">
+							<div class="product-item">
+								<div class="heart-icon">
+									<img src="./assets/icons/heartIcon.svg" alt="" />
+								</div>
+								<a href="/">
+									<div class="image-container">
+										<img
+											src="./assets/discountBlockImg/radio.png"
+											alt="Сумка из эко-кожи"
+										/>
+									</div>
+									<div class="info">
+										<h3>Сумка из эко-кожи</h3>
+										<p>700 сом</p>
+									</div>
+								</a>
+							</div>
+							<div class="product-item">
+								<div class="heart-icon">
+									<img src="./assets/icons/heartIcon.svg" alt="" />
+								</div>
+								<a href="/">
+									<div class="image-container">
+										<img
+											src="./assets/discountBlockImg/necklace.png"
+											alt="Сумка из эко-кожи"
+										/>
+									</div>
+									<div class="info">
+										<h3>Сумка из эко-кожи</h3>
+										<p>700 сом</p>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="container">
+					<h2 class="section-title">КОНСТРУКТОР</h2>
+					<div class="product-grid">
+						<div class="product-card">
+							<div class="product-card__img">
+								<img src="./assets/Catalog/discount.png" alt="" />
+								<img
+									class="heart-icon"
+									src="./assets/icons/heartIcon.svg"
+									alt="Favorite"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2>Ночник LEGO</h2>
+								<h3>ночник LEGO</h3>
+								<div class="product-footer">
+									<p>1200 сом</p>
+									<img src="./assets/icons/basketIconNoActive.svg" alt="" />
+								</div>
+								<button class="add-to-cart">добавить в корзину</button>
+							</div>
+						</div>
+						<div class="product-card">
+							<div class="product-card__img">
+								<img src="./assets/Catalog/discount.png" alt="" />
+								<img
+									class="heart-icon"
+									src="./assets/icons/heartIcon.svg"
+									alt="Favorite"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2>Винтажные кепки из 90х</h2>
+								<h3>винтажные кепки из 90х</h3>
+								<div class="product-footer">
+									<p>700-800 сом</p>
+									<img src="./assets/icons/basketIconNoActive.svg" alt="" />
+								</div>
+								<button class="add-to-cart">добавить в корзину</button>
+							</div>
+						</div>
+						<div class="product-card">
+							<div class="product-card__img">
+								<img src="./assets/Catalog/discount.png" alt="" />
+								<img
+									class="heart-icon"
+									src="./assets/icons/heartIcon.svg"
+									alt="Favorite"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2>Ночник LEGO</h2>
+								<h3>подвеска с розовыми камнями</h3>
+								<div class="product-footer">
+									<p>1200 сом</p>
+									<img src="./assets/icons/basketIconNoActive.svg" alt="" />
+								</div>
+								<button class="add-to-cart">добавить в корзину</button>
+							</div>
+						</div>
+						<div class="product-card">
+							<div class="product-card__img">
+								<img src="./assets/Catalog/discount.png" alt="" />
+								<img
+									class="heart-icon"
+									src="./assets/icons/heartIcon.svg"
+									alt="Favorite"
+								/>
+							</div>
+							<div class="product-card__info">
+								<h2>Винтажные кепки из 90х</h2>
+								<h3>Винтажные кепки из 90х</h3>
+								<div class="product-footer">
+									<p>700-800 сом</p>
+									<img src="./assets/icons/basketIconNoActive.svg" alt="" />
+								</div>
+								<button class="add-to-cart">добавить в корзину</button>
+							</div>
+						</div>
+					</div>
+					<a href="/catalog" class="view-all">Смотреть все</a>
+				</div>
+			</section>
+
+			<!-- Features -->
+			<section class="features">
+				<div class="container">
+					<div class="features-container">
+						<div class="feature-card">
+							<img src="./assets/icons/orderImg.svg" alt="" />
+							<div class="feature-card-text">
+								<a href="/">Отправка день в день</a>
+								<p>ПРИ ЗАКАЗЕ ДО 18:00</p>
+							</div>
+						</div>
+						<div class="feature-card">
+							<img src="./assets/icons/returnImg.svg" alt="" />
+							<div class="feature-card-text">
+								<a href="/vozvrat">Легкий возврат/обмен</a>
+								<p>В ТЕЧЕНИИ 14 ДНЕЙ</p>
+							</div>
+						</div>
+						<div class="feature-card">
+							<img src="./assets/icons/discountImg.svg" alt="" />
+							<div class="feature-card-text">
+								<a href="/skidki">Хорошие скидки</a>
+								<p>ПОКУПАЙ ТУТ</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<footer class="footer">
+			<div class="footer-container">
+				<img src="./assets/icons/logoWhite.svg" alt="Логотип" class="logo" />
+
+				<ul class="footer-links">
+					<li><a href="/faq">Часто задаваемые вопросы</a></li>
+					<li><a href="/catalog">Каталог</a></li>
+					<li><a href="/profile">Личный кабинет</a></li>
+					<li><a href="/cart">Корзина</a></li>
+				</ul>
+
+				<div class="footer-contacts">
+					<h3>Контакты</h3>
+					<a href="#" class="contact-item">
+						<img src="./assets/icons/contactIcon.svg" alt="" />
+						Телефон: 0 312 123456
+					</a>
+					<a href="#" class="contact-item">
+						<img src="./assets/icons/location.svg" alt="" />
+						Адрес: ул. пр. Чуй 132
+					</a>
+					<a class="contact-map" href="https://go.2gis.com/4401o6">
+						https://go.2gis.com/4401o6
+					</a>
+					<div class="social-links">
+						<a href="#"
+							><img src="./assets/icons/instagramIcon.svg" alt="Instagram"
+						/></a>
+						<a href="#"
+							><img src="./assets/icons/tiktokIcon.svg" alt="TikTok"
+						/></a>
+					</div>
+				</div>
+			</div>
+		</footer>
 		<script src="/js/layout/layout-header.js"></script>
-		<script src="/js/layout/layout-footer.js"></script>
-		<script src="/js/categories.js"></script>
 	</body>
 </html>

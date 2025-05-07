@@ -8,12 +8,6 @@
 	padding: 0 40px;
 }
 
-@media (max-width: 768px) {
-	.container {
-		padding: 0 20px;
-	}
-}
-
 @media (max-width: 640px) {
 	.container {
 		padding: 0 10px;
@@ -51,7 +45,16 @@
 .catalog {
 	padding-top: 70px;
 }
-
+@media (max-width: 768px) {
+	.container {
+		padding: 0 20px;
+	}
+}
+@media (max-width: 767px) {
+	.catalog {
+		padding-top: 0;
+	}
+}
 .catalog-grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
