@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Профиль</title>
+		<link rel="stylesheet" href="./css/layout/header_layout.css" />
+		<link rel="stylesheet" href="./css/layout/footer_layout.css" />
+		<link rel="stylesheet" href="./css/profile.css" />
+		<style>
+			.footer {
+				position: fixed;
+				width: 100%;
+				bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header"></div>
+		<section class="profile">
+			<div class="container">
+				<div class="profile__content">
+					<!-- Верхняя секция -->
+					<div class="profile__top">
+						<div class="profile__user">
+							<img src="./assets/img/profile-big.png" alt="Profile" />
+							<div class="profile__user-info">
+								<h2>Derided</h2>
+								<p>example@gmail.com</p>
+							</div>
+						</div>
+						<div class="profile__logout">
+							<img
+								src="./assets/icons/exitIcon.svg"
+								onclick="showModal()"
+								alt="Exit"
+							/>
+						</div>
+					</div>
+
+					<!-- Нижняя секция -->
+					<div class="profile__bottom">
+						<div
+							class="profile__bottom-box"
+							onclick="window.location.href='/orders'"
+						>
+							<img
+								src="./assets/icons/orderIcon.svg"
+								class="desktop-icon"
+								alt=""
+							/>
+							<img
+								src="./assets/icons/whiteCart.svg"
+								class="mobile-icon"
+								alt=""
+							/>
+							<p>Заказы</p>
+						</div>
+
+						<div
+							class="profile__bottom-box"
+							onclick="window.location.href='/address'"
+						>
+							<img src="./assets/icons/loc.svg" class="desktop-icon" alt="" />
+							<img
+								src="./assets/icons/whiteLocation.svg"
+								class="mobile-icon"
+								alt=""
+							/>
+							<p>Адрес</p>
+						</div>
+
+						<div
+							class="profile__bottom-box"
+							onclick="window.location.href='/myAccount'"
+						>
+							<img
+								src="./assets/icons/account.svg"
+								class="desktop-icon"
+								alt=""
+							/>
+							<img
+								src="./assets/icons/whiteAccount.svg"
+								class="mobile-icon"
+								alt=""
+							/>
+							<p>Аккаунт</p>
+						</div>
+
+						<div
+							class="profile__bottom-box mobile-logout"
+							onclick="showModal()"
+						>
+							<img src="./assets/icons/exitIcon2.svg" alt="" />
+							<p>Выйти</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Модальное окно -->
+			<div id="modal" class="modal">
+				<div class="modal-content">
+					<h2 class="modal-header">Вы уверены, что хотите выйти?</h2>
+					<div class="modal-footer">
+						<button class="modal-button border-blue" onclick="hideModal()">
+							Отмена
+						</button>
+						<button
+							class="modal-button bg-blue"
+							onclick="window.location.href='/auth'"
+						>
+							Выйти
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div id="footer"></div>
+		<!-- <footer class="footer">
+			<div class="footer-container">
+				<img
+					src="./assets/icons/logoWhite.svg"
+					alt="Логотип"
+					class="logo-footer"
+				/>
+
+				<ul class="footer-links">
+					<li><a href="/faq">Часто задаваемые вопросы</a></li>
+					<li><a href="/catalog">Каталог</a></li>
+					<li><a href="/profile">Личный кабинет</a></li>
+					<li><a href="/cart">Корзина</a></li>
+				</ul>
+
+				<div class="footer-contacts">
+					<h3>Контакты</h3>
+					<a href="#" class="contact-item">
+						<img src="./assets/icons/contactIcon.svg" alt="" />
+						Телефон: 0 312 123456
+					</a>
+					<a href="#" class="contact-item">
+						<img src="./assets/icons/location.svg" alt="" />
+						Адрес: ул. пр. Чуй 132
+					</a>
+					<a class="contact-map" href="https://go.2gis.com/4401o6">
+						https://go.2gis.com/4401o6
+					</a>
+					<div class="social-links">
+						<a href="#"
+							><img src="./assets/icons/instagramIcon.svg" alt="Instagram"
+						/></a>
+						<a href="#"
+							><img src="./assets/icons/tiktokIcon.svg" alt="TikTok"
+						/></a>
+					</div>
+				</div>
+			</div>
+		</footer> -->
+
+		<script src="./js/layout/layout-header.js"></script>
+		<script src="./js/layout/layout-footer.js"></script>
+
+		<script>
+			function showModal() {
+				document.getElementById('modal').style.display = 'flex'
+			}
+
+			function hideModal() {
+				document.getElementById('modal').style.display = 'none'
+			}
+
+			// Закрытие модального окна при клике вне его
+			window.onclick = function (event) {
+				const modal = document.getElementById('modal')
+				if (event.target === modal) {
+					hideModal()
+				}
+			}
+		</script>
+	</body>
+</html>
