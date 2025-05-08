@@ -108,6 +108,7 @@
 }
 
 .modal {
+	z-index: 30;
 	display: none;
 	position: fixed;
 	top: 0;
@@ -134,9 +135,23 @@
 
 .modal-button {
 	flex: 1;
-	padding: 0.75rem;
-	border-radius: 5px;
+	padding: 0.5rem;
+	border-radius: 15px;
 	cursor: pointer;
+	font-weight: 600;
+	font-size: 18px;
+	color: #2c4ea5;
+}
+
+.border-blue {
+	border: 1px solid #2c4ea5;
+	background-color: white;
+}
+
+.bg-blue {
+	background-color: #2c4ea5;
+	color: white;
+	border: 0;
 }
 
 @media (max-width: 768px) {
