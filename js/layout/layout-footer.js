@@ -38,20 +38,20 @@ const footer = `
         <div class="container">
             <div class="footer-nav">
                 <a href="/" class="nav-link">
-                    <img src="/assets/icons/homeIcon.svg" alt="Home" class="nav-icon">
-                    <img src="/assets/icons/homeIconActive.svg" alt="Home Active" class="nav-icon-active">
+                    <img src="./assets/icons/homeIcon.svg" alt="Home" class="nav-icon">
+                    <img src="./assets/icons/homeIconActive.svg" alt="Home Active" class="nav-icon-active">
                 </a>
                 <a href="/favorites" class="nav-link">
-                    <img src="/assets/icons/favoriteIcon.svg" alt="Favorites" class="nav-icon">
-                    <img src="/assets/icons/favoriteIconActive.svg" alt="Favorites Active" class="nav-icon-active">
+                    <img src="./assets/icons/favoriteIcon.svg" alt="Favorites" class="nav-icon">
+                    <img src="./assets/icons/favoriteIconActive.svg" alt="Favorites Active" class="nav-icon-active">
                 </a>
                 <a href="/shop" class="nav-link">
-                    <img src="/assets/icons/shopIcon.svg" alt="Shop" class="nav-icon">
-                    <img src="/assets/icons/shopIconActive.svg" alt="Shop Active" class="nav-icon-active">
+                    <img src="./assets/icons/shopIcon.svg" alt="Shop" class="nav-icon">
+                    <img src="./assets/icons/shopIconActive.svg" alt="Shop Active" class="nav-icon-active">
                 </a>
                 <a href="/contacts" class="nav-link">
-                    <img src="/assets/icons/accountIcon.svg" alt="Contacts" class="nav-icon">
-                    <img src="/assets/icons/accountIconActive.svg" alt="Contacts Active" class="nav-icon-active">
+                    <img src="./assets/icons/accountIcon.svg" alt="Contacts" class="nav-icon">
+                    <img src="./assets/icons/accountIconActive.svg" alt="Contacts Active" class="nav-icon-active">
                 </a>
             </div>
         </div>
