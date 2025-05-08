@@ -107,3 +107,76 @@
 		transform: translate(-50%, -50%);
 	}
 } */
+
+body {
+	padding-bottom: 72px; /* Высота футера (56px) + padding (16px) */
+}
+
+@media (min-width: 768px) {
+	body {
+		padding-bottom: 0; /* Убираем отступ на десктопе */
+	}
+}
+
+/* Мобильный футер */
+.mobile-footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: #fff;
+	padding: 16px 0;
+	z-index: 10;
+	display: block;
+}
+
+@media (min-width: 768px) {
+	.mobile-footer {
+		display: none;
+	}
+}
+
+/* Навигация */
+.footer-nav {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.nav-link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	transition: background-color 0.3s ease;
+	text-decoration: none;
+}
+
+.nav-link:hover {
+	background-color: #e5e7eb;
+}
+
+.nav-link.active {
+	background-color: #3b82f6; /* Соответствует bg-blue-500 */
+}
+
+/* .nav-icon {
+	width: 24px;
+	height: 24px;
+	display: block;
+} */
+
+.nav-link.active .nav-icon {
+	display: none;
+}
+
+.nav-icon-active {
+	width: 24px;
+	height: 24px;
+	display: none;
+}
+
+.nav-link.active .nav-icon-active {
+	display: block;
+}
