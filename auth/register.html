@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Регистрация</title>
+		<link rel="stylesheet" href="../css/register.css" />
+	</head>
+	<body>
+		<section class="auth">
+			<!-- Левая часть -->
+			<div class="auth__img">
+				<img src="../assets/Auth/bg.png" alt="Auth Background" />
+			</div>
+
+			<!-- Правая часть -->
+			<div class="auth__content">
+				<form onsubmit="handleSubmit(event)">
+					<h2>Зарегистрироваться</h2>
+					<p class="text-gray-500">
+						Уже есть аккаунт?
+						<span class="text-blue-500" onclick="switchView('login')"
+							>Войти</span
+						>
+					</p>
+
+					<div class="space-y-4">
+						<div class="input-group">
+							<label for="nickname">Nickname</label>
+							<input
+								type="text"
+								id="nickname"
+								name="first_name"
+								placeholder="Введите ваш nickname"
+							/>
+						</div>
+
+						<div class="input-group">
+							<label for="email">Email</label>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								placeholder="Введите ваш email"
+							/>
+						</div>
+
+						<div class="">
+							<label for="phone">Телефон</label>
+							<input
+								type="tel"
+								id="phone"
+								name="phone"
+								placeholder="Введите ваш телефон"
+							/>
+						</div>
+
+						<div class="password-group">
+							<label for="password">Пароль</label>
+							<input
+								type="password"
+								id="password"
+								name="password1"
+								placeholder="Введите ваш пароль"
+								oninput="validatePassword()"
+								onfocus="togglePasswordFocus(true)"
+								onblur="togglePasswordFocus(false)"
+							/>
+							<img
+								alt=""
+								src="../assets/icons/eye-offIcon.svg"
+								class="password-toggle"
+								onclick="togglePasswordVisibility()"
+								id="toggleIcon"
+							/>
+							<ul class="validation-list">
+								<li id="lengthValidation">
+									<img
+										alt=""
+										src="../assets/icons/close.svg"
+										class="validation-icon"
+										width="12"
+									/>
+									8 Символов
+								</li>
+								<li id="symbolValidation">
+									<img
+										alt=""
+										src="../assets/icons/close.svg"
+										class="validation-icon"
+										width="12"
+									/>
+									Особый символ
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<button type="submit" class="submit-btn">Зарегистрироваться</button>
+				</form>
+			</div>
+		</section>
+
+		<script>
+			let isPasswordFocused = false
+			let passwordValidations = {
+				length: false,
+				symbol: false,
+			}
+
+			function togglePasswordVisibility() {
+				const passwordInput = document.getElementById('password')
+				const toggleIcon = document.getElementById('toggleIcon')
+
+				if (passwordInput.type === 'password') {
+					passwordInput.type = 'text'
+					toggleIcon.src = '../assets/icons/eye-onIcon.svg'
+				} else {
+					passwordInput.type = 'password'
+					toggleIcon.src = '../assets/icons/eye-offIcon.svg'
+				}
+			}
+
+			function validatePassword() {
+				const password = document.getElementById('password').value
+				const lengthValidation = document.getElementById('lengthValidation')
+				const symbolValidation = document.getElementById('symbolValidation')
+
+				// Проверка длины
+				passwordValidations.length = password.length >= 8
+				lengthValidation.querySelector('img').src = passwordValidations.length
+					? '../assets/icons/ok.svg'
+					: '../assets/icons/close.svg'
+				lengthValidation.style.color = passwordValidations.length
+					? 'black'
+					: 'red'
+
+				// Проверка специальных символов
+				passwordValidations.symbol = /[^a-zA-Zа-яА-ЯёЁ]/.test(password)
+				symbolValidation.querySelector('img').src = passwordValidations.symbol
+					? '../assets/icons/ok.svg'
+					: '../assets/icons/close.svg'
+				symbolValidation.style.color = passwordValidations.symbol
+					? 'black'
+					: 'red'
+
+				// Обновление стиля поля ввода
+				const passwordField = document.getElementById('password')
+				if (
+					isPasswordFocused &&
+					(!passwordValidations.length || !passwordValidations.symbol)
+				) {
+					passwordField.style.borderColor = 'red'
+				} else {
+					passwordField.style.borderColor = '#3b82f6'
+				}
+			}
+
+			function togglePasswordFocus(focused) {
+				isPasswordFocused = focused
+				validatePassword()
+			}
+
+			function switchView(view) {
+				// Реализация переключения между формами
+				console.log('Переключение на:', view)
+			}
+
+			function handleSubmit(event) {
+				event.preventDefault()
+				// Логика отправки формы
+				const formData = {
+					first_name: document.getElementById('nickname').value,
+					email: document.getElementById('email').value,
+					phone: document.getElementById('phone').value,
+					password1: document.getElementById('password').value,
+				}
+				console.log(formData)
+			}
+		</script>
+	</body>
+</html>
