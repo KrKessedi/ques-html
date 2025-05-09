@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Список желаний</title>
+		<title>Заказы</title>
 		<link rel="stylesheet" href="./css/orders.css" />
 		<link rel="stylesheet" href="./css/layout/header_layout.css" />
 		<link rel="stylesheet" href="./css/layout/footer_layout.css" />
@@ -21,8 +21,8 @@
 			<div class="container">
 				<div class="orders-header">
 					<!-- Левая часть -->
-					<div style="font-size: 36px">
-						<span class="cursor-pointer" style="display: block">
+					<div class="left-block">
+						<span>
 							<img src="./assets/icons/left-arrow.svg" alt="" width="32" />
 						</span>
 					</div>
@@ -88,13 +88,7 @@
 								<div class="status-step">
 									<div class="status-dot"></div>
 									<div class="status-content">
-										<div
-											style="
-												display: flex;
-												justify-content: space-between;
-												align-items: center;
-											"
-										>
+										<div class="status-content__top-block">
 											<h3 class="status-title">Сборка</h3>
 											<p class="status-date">24.06.2024</p>
 										</div>
@@ -116,7 +110,7 @@
 									</div>
 								</div>
 
-								<div class="status-step" style="margin-top: -5px">
+								<div class="status-step">
 									<div class="status-dot"></div>
 									<div class="status-content">
 										<h3 class="status-title">Доставлено</h3>
