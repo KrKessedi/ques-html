@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Адрес доставки</title>
+		<link rel="stylesheet" href="./css/layout/header_layout.css" />
+		<link rel="stylesheet" href="./css/layout/footer_layout.css" />
+		<link rel="stylesheet" href="./css/address.css" />
+	</head>
+	<body>
+		<div id="header"></div>
+		<section class="address">
+			<div class="container">
+				<div class="header-section">
+					<div class="arrow-container">
+						<img src="./assets/icons/left-arrow.svg" alt="Назад" width="32" />
+					</div>
+					<h1 class="title">Адрес доставки</h1>
+				</div>
+
+				<p class="form-description">
+					Следующие адреса будут использованы по умолчанию при оформлении
+					заказов
+				</p>
+
+				<form id="addressForm" class="address__form">
+					<div class="address__form-wrapper">
+						<!-- Информация о заказчике -->
+						<div class="form-section">
+							<h2 class="form-header">Информация о заказчике</h2>
+
+							<div class="form-group">
+								<label for="name">Имя</label>
+								<input type="text" id="name" name="name" required />
+								<span class="error-message" id="nameError"></span>
+							</div>
+
+							<div class="form-group">
+								<label for="phone">Телефон</label>
+								<input type="tel" id="phone" name="phone" required />
+								<span class="error-message" id="phoneError"></span>
+							</div>
+
+							<div class="form-group">
+								<label for="email">Почта</label>
+								<input type="email" id="email" name="email" required />
+								<span class="error-message" id="emailError"></span>
+							</div>
+						</div>
+
+						<!-- Адрес доставки -->
+						<div class="form-section">
+							<h2 class="form-header">Адрес доставки</h2>
+
+							<div class="form-group">
+								<label for="country">Страна</label>
+								<input type="text" id="country" name="country" required />
+								<span class="error-message" id="countryError"></span>
+							</div>
+
+							<div class="form-group">
+								<label for="city">Город</label>
+								<input type="text" id="city" name="city" required />
+								<span class="error-message" id="cityError"></span>
+							</div>
+
+							<div class="form-group">
+								<label for="address">Адрес</label>
+								<input type="text" id="address" name="address" required />
+								<span class="error-message" id="addressError"></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="buttons-container">
+						<button type="reset">Сбросить</button>
+						<button type="submit">Сохранить</button>
+					</div>
+				</form>
+			</div>
+
+			<script>
+				const form = document.getElementById('addressForm')
+				const errorMessages = document.querySelectorAll('.error-message')
+
+				// Валидация формы
+				function validateForm() {
+					let isValid = true
+
+					const fields = [
+						{ id: 'name', message: 'Имя обязательно' },
+						{ id: 'phone', message: 'Телефон обязателен' },
+						{ id: 'email', message: 'Почта обязательна' },
+						{ id: 'country', message: 'Страна обязательна' },
+						{ id: 'city', message: 'Город обязателен' },
+						{ id: 'address', message: 'Адрес обязателен' },
+					]
+
+					fields.forEach((field) => {
+						const input = document.getElementById(field.id)
+						const error = document.getElementById(`${field.id}Error`)
+
+						if (!input.value.trim()) {
+							error.textContent = field.message
+							error.style.display = 'block'
+							input.style.borderColor = '#ff0000'
+							isValid = false
+						} else {
+							error.style.display = 'none'
+							input.style.borderColor = '#EDF1F3'
+						}
+					})
+
+					return isValid
+				}
+
+				// Обработка отправки
+				form.addEventListener('submit', (e) => {
+					e.preventDefault()
+
+					if (validateForm()) {
+						const formData = {
+							name: document.getElementById('name').value,
+							phone: document.getElementById('phone').value,
+							email: document.getElementById('email').value,
+							country: document.getElementById('country').value,
+							city: document.getElementById('city').value,
+							address: document.getElementById('address').value,
+						}
+
+						console.log('Данные формы:', formData)
+						form.reset()
+					}
+				})
+
+				// Сброс ошибок при изменении
+				form.addEventListener('input', (e) => {
+					const input = e.target
+					const error = document.getElementById(`${input.id}Error`)
+
+					error.style.display = 'none'
+					input.style.borderColor = '#EDF1F3'
+				})
+
+				// Сброс формы
+				form.addEventListener('reset', () => {
+					errorMessages.forEach((error) => (error.style.display = 'none'))
+					document.querySelectorAll('input').forEach((input) => {
+						input.style.borderColor = '#EDF1F3'
+					})
+				})
+			</script>
+		</section>
+		<div id="footer"></div>
+		<script src="./js/layout/layout-header.js"></script>
+		<script src="./js/layout/layout-footer.js"></script>
+	</body>
+</html>
