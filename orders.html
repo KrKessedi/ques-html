@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Список желаний</title>
+		<link rel="stylesheet" href="./css/orders.css" />
+		<link rel="stylesheet" href="./css/layout/header_layout.css" />
+		<link rel="stylesheet" href="./css/layout/footer_layout.css" />
+		<!-- <style>
+			.footer {
+				position: fixed;
+				width: 100%;
+				bottom: 0;
+			}
+		</style> -->
+	</head>
+	<body>
+		<div id="header"></div>
+		<section class="orders">
+			<div class="container">
+				<div class="orders-header">
+					<!-- Левая часть -->
+					<div style="font-size: 36px">
+						<span class="cursor-pointer" style="display: block">
+							<img src="./assets/icons/left-arrow.svg" alt="" width="32" />
+						</span>
+					</div>
+
+					<!-- Заголовок -->
+					<span class="orders-title" id="pageTitle"> Список желаний </span>
+
+					<!-- Правая часть (пустой div) -->
+					<div></div>
+				</div>
+				<div class="orders-tabs">
+					<button type="button" id="ordersBtn" class="tab-button active">
+						Заказ
+					</button>
+					<button type="button" id="statusBtn" class="tab-button">
+						Статус заказа
+					</button>
+				</div>
+				<div class="orders-content" id="contentArea">
+					<!-- Контент заказов -->
+					<div id="ordersContent">
+						<div class="order-item">
+							<img
+								src="./assets/img/favCardImage.jpg"
+								alt="Элегантные кольца из Стали"
+								class="order-item-img"
+							/>
+							<div class="order-item-info">
+								<div class="order-item-name">
+									<h2 class="order-item-title">Элегантные кольца из Стали</h2>
+									<span class="order-item-size"> 100мл </span>
+								</div>
+								<div class="order-item-price">
+									<span class="order-item-price-value"> 750 сом </span>
+									<span class="order-item-quantity"> 2 шт </span>
+								</div>
+							</div>
+						</div>
+						<div class="order-item">
+							<img
+								src="./assets/img/favCardImage.jpg"
+								alt="Элегантные кольца из Стали"
+								class="order-item-img"
+							/>
+							<div class="order-item-info">
+								<div class="order-item-name">
+									<h2 class="order-item-title">Элегантные кольца из Стали</h2>
+									<span class="order-item-size"> 100мл </span>
+								</div>
+								<div class="order-item-price">
+									<span class="order-item-price-value"> 750 сом </span>
+									<span class="order-item-quantity"> 2 шт </span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Контент статуса заказа (скрыт по умолчанию) -->
+					<div id="statusContent" class="hidden">
+						<!-- Мобильная версия -->
+						<div class="order-status-mobile">
+							<div class="status-timeline">
+								<div class="status-step">
+									<div class="status-dot"></div>
+									<div class="status-content">
+										<div
+											style="
+												display: flex;
+												justify-content: space-between;
+												align-items: center;
+											"
+										>
+											<h3 class="status-title">Сборка</h3>
+											<p class="status-date">24.06.2024</p>
+										</div>
+										<p class="status-description">
+											На этапе сборки тщательно проверяют ваш заказ и проверяют
+											перед отправкой
+										</p>
+										<span class="status-time">24.06.2024</span>
+									</div>
+								</div>
+
+								<div class="status-step">
+									<div class="status-dot"></div>
+									<div class="status-content">
+										<h3 class="status-title">Доставка</h3>
+										<p class="status-description">
+											На данном этапе заказа отправляется покупателю
+										</p>
+									</div>
+								</div>
+
+								<div class="status-step" style="margin-top: -5px">
+									<div class="status-dot"></div>
+									<div class="status-content">
+										<h3 class="status-title">Доставлено</h3>
+										<p class="status-description">Заказ доставлен покупателю</p>
+										<a href="#" class="status-confirm">Подтвердить</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Десктопная версия -->
+						<div class="order-status-desktop">
+							<div class="status-icons">
+								<img src="./assets/Orders/box-open.svg" alt="Сборка" />
+								<img src="./assets/Orders/car-fill.svg" alt="Доставка" />
+								<img src="./assets/Orders/delivered.svg" alt="Доставлено" />
+							</div>
+							<div class="status-progress">
+								<div class="status-progress-step">
+									<div class="status-progress-line"></div>
+									<div class="status-progress-dot"></div>
+								</div>
+								<div class="status-progress-step center">
+									<div class="status-progress-dot"></div>
+								</div>
+								<div class="status-progress-step end">
+									<div class="status-progress-line"></div>
+									<div class="status-progress-dot"></div>
+								</div>
+							</div>
+							<div class="status-columns">
+								<div class="status-column text-left">
+									<p class="status-column-title">Сборка</p>
+									<p class="status-column-text">
+										На этапе сборки тщательно проверяют ваш заказ и проверяют
+										перед отправкой
+									</p>
+									<p class="status-column-date">24.06.2024</p>
+								</div>
+								<div class="status-column text-center">
+									<p class="status-column-title">Доставка</p>
+									<p class="status-column-text">
+										На данном этапе заказа отправляется покупателю
+									</p>
+								</div>
+								<div class="status-column text-right">
+									<p class="status-column-title">Доставлено</p>
+									<p class="status-column-text">Заказ доставлен покупателю</p>
+									<button class="status-column-button">Подтвердить</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div id="footer"></div>
+		<script src="./js/layout/layout-header.js"></script>
+		<script src="./js/layout/layout-footer.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const ordersBtn = document.getElementById('ordersBtn')
+				const statusBtn = document.getElementById('statusBtn')
+				const ordersContent = document.getElementById('ordersContent')
+				const statusContent = document.getElementById('statusContent')
+				const pageTitle = document.getElementById('pageTitle')
+
+				// Обработчики для переключения вкладок
+				ordersBtn.addEventListener('click', function () {
+					ordersBtn.classList.add('active')
+					statusBtn.classList.remove('active')
+					ordersContent.classList.remove('hidden')
+					statusContent.classList.add('hidden')
+					pageTitle.textContent = 'Список желаний'
+				})
+
+				statusBtn.addEventListener('click', function () {
+					statusBtn.classList.add('active')
+					ordersBtn.classList.remove('active')
+					statusContent.classList.remove('hidden')
+					ordersContent.classList.add('hidden')
+					pageTitle.textContent = 'Статус заказа'
+				})
+			})
+		</script>
+	</body>
+</html>
