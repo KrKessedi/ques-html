@@ -259,6 +259,9 @@
 	background: #f48218;
 	border-radius: 4px;
 	cursor: pointer;
+	font-size: 20px;
+	color: white;
+	border: none;
 }
 
 .quantity-btn:hover {
@@ -344,6 +347,7 @@
 	position: absolute;
 	top: 25px;
 	right: 25px;
+	z-index: 10;
 }
 
 .product-add {
