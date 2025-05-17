@@ -473,6 +473,7 @@ header {
 .avatar {
 	width: 59px;
 	height: 59px;
+	border-radius: 50%;
 }
 
 /* Burger menu styles */
