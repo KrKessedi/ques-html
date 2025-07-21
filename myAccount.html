@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>My Account</title>
+		<link rel="stylesheet" href="./css/myAccount.css" />
+		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" href="./css/layout/header_layout.css" />
+		<link rel="stylesheet" href="./css/layout/footer_layout.css" />
+	</head>
+	<body>
+		<div id="header"></div>
+		<section class="auth">
+			<!-- Фоновое изображение (десктоп) -->
+			<div class="auth__img">
+				<img src="/assets/Auth/bg.png" alt="Background" class="auth__img-bg" />
+			</div>
+
+			<!-- Контент -->
+			<div class="auth__content">
+				<!-- Заголовок и навигация -->
+				<div class="auth__header">
+					<a href="/profile" class="auth__back">&lt;</a>
+					<span class="auth__title">Мой аккаунт</span>
+					<div class="auth__spacer"></div>
+				</div>
+
+				<!-- Форма -->
+				<div class="auth__form-container">
+					<form class="form">
+						<div class="form__avatar">
+							<img
+								src="/assets/img/profile-big.png"
+								alt="Profile"
+								class="form__avatar-img"
+							/>
+						</div>
+						<p class="form__subtitle">Изменить</p>
+						<div class="form__content">
+							<div class="form__group">
+								<label class="input-field">
+									<span class="input-label">Имя</span>
+									<input
+										type="text"
+										placeholder="Имя"
+										name="name"
+										class="input"
+									/>
+								</label>
+							</div>
+							<div class="form__group">
+								<label class="input-field">
+									<span class="input-label">Никнейм</span>
+									<input
+										type="text"
+										placeholder="Никнейм"
+										name="nickname"
+										class="input"
+									/>
+								</label>
+							</div>
+							<div class="form__group">
+								<label class="input-field">
+									<span class="input-label">Почта</span>
+									<input
+										type="email"
+										placeholder="Почта"
+										name="email"
+										class="input"
+									/>
+								</label>
+							</div>
+							<div class="form__group">
+								<label class="input-field">
+									<span class="input-label">Номер телефон</span>
+									<input
+										type="tel"
+										placeholder="Телефон"
+										name="phone"
+										class="input"
+									/>
+								</label>
+							</div>
+							<div class="form__group">
+								<label class="input-field">
+									<span class="input-label">Пароль</span>
+									<input
+										type="password"
+										placeholder="Пароль"
+										name="password"
+										class="input"
+									/>
+									<button type="button" class="toggle-password">
+										<img
+											src="/assets/icons/eye-offIcon.svg"
+											alt="Show Password"
+											class="password-icon"
+										/>
+									</button>
+								</label>
+							</div>
+							<p class="form__forgot-password">Забыли пароль?</p>
+						</div>
+						<button type="submit" class="form__submit">
+							Сохранить изменения
+						</button>
+					</form>
+				</div>
+
+				<!-- Модальное окно -->
+				<div class="modal">
+					<div class="modal__content">
+						<div class="modal__header">
+							<h2>Смена пароля</h2>
+							<form class="modal__form">
+								<div class="form__group">
+									<label class="input-field">
+										<span class="input-label">Нынешний пароль</span>
+										<input
+											type="password"
+											placeholder="Нынешний пароль"
+											name="password"
+											class="input"
+										/>
+										<button type="button" class="toggle-password">
+											<img
+												src="/assets/icons/eye-offIcon.svg"
+												alt="Show Password"
+												class="password-icon"
+											/>
+										</button>
+									</label>
+								</div>
+								<div class="form__group">
+									<label class="input-field">
+										<span class="input-label">Новый пароль</span>
+										<input
+											type="password"
+											placeholder="Новый пароль"
+											name="newPassword"
+											class="input"
+										/>
+										<button type="button" class="toggle-password">
+											<img
+												src="/assets/icons/eye-offIcon.svg"
+												alt="Show Password"
+												class="password-icon"
+											/>
+										</button>
+									</label>
+								</div>
+								<div class="form__group">
+									<label class="input-field">
+										<span class="input-label">Подтвердить пароль</span>
+										<input
+											type="password"
+											placeholder="Подтвердить пароль"
+											name="newPasswordConfirm"
+											class="input"
+										/>
+										<button type="button" class="toggle-password">
+											<img
+												src="/assets/icons/eye-offIcon.svg"
+												alt="Show Password"
+												class="password-icon"
+											/>
+										</button>
+									</label>
+								</div>
+								<div class="modal__footer">
+									<button type="submit" class="modal__submit">
+										Сохранить изменения
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div id="footer"></div>
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const forgotPasswordLink = document.querySelector(
+					'.form__forgot-password'
+				)
+				const modal = document.querySelector('.modal')
+				const modalContent = document.querySelector('.modal__content')
+				const togglePasswordButtons =
+					document.querySelectorAll('.toggle-password')
+
+				// Открытие модального окна
+				forgotPasswordLink.addEventListener('click', () => {
+					modal.classList.add('active')
+					document.body.style.overflow = 'hidden'
+				})
+
+				// Закрытие модального окна при клике на фон
+				modal.addEventListener('click', (e) => {
+					if (e.target === modal) {
+						modal.classList.remove('active')
+						document.body.style.overflow = 'auto'
+					}
+				})
+
+				// Переключение видимости пароля
+				togglePasswordButtons.forEach((button) => {
+					button.addEventListener('click', () => {
+						const input = button.parentElement.querySelector('.input')
+						const icon = button.querySelector('.password-icon')
+						if (input.type === 'password') {
+							input.type = 'text'
+							icon.src = '/assets/icons/eye-onIcon.svg'
+						} else {
+							input.type = 'password'
+							icon.src = '/assets/icons/eye-offIcon.svg'
+						}
+					})
+				})
+			})
+		</script>
+		<script src="./js/layout/layout-header.js"></script>
+		<script src="./js/layout/layout-footer.js"></script>
+	</body>
+</html>
