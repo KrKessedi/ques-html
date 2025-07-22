@@ -60,6 +60,17 @@
 	object-fit: cover;
 }
 
+@media all and (max-width: 920px) {
+	.product-image {
+		height: 250px;
+	}
+}
+@media all and (max-width: 540px) {
+	.product-image {
+		height: 200px;
+	}
+}
+
 .product-title {
 	position: absolute;
 	z-index: 10;
