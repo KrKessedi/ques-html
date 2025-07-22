@@ -470,6 +470,11 @@ header {
 	cursor: pointer;
 }
 
+.avatar {
+	width: 55px;
+	height: 55px;
+}
+
 /* Burger menu styles */
 .burger-container {
 	display: flex;
